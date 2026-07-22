@@ -71,6 +71,7 @@ const topics: TopicGuide[] = [
     objective: 'Comprueba cuándo una función es invertible y entiende la inversión como intercambio de entradas y salidas.',
     formula: 'f^{-1}(f(x)) = x, \\quad f(f^{-1}(x)) = x',
     example: 'La inversa de f(x) = 3x − 2 es f⁻¹(x) = (x + 2)/3; ambas gráficas son simétricas respecto de y = x.',
+    resource: { label: 'Abrir calculador de inversa', href: '/unidades/unidad-1/funcion-inversa' },
   },
   {
     id: 'modelos',
