@@ -145,6 +145,14 @@ export default function UnitOneGuide() {
         </div>
       </div>
 
+      <Link
+        href="/unidades/unidad-1/repaso-general"
+        className="inline-flex items-center gap-2 text-sm font-medium text-frosted-lilac transition-colors hover:text-quartz"
+      >
+        Abrir repaso general de la unidad
+        <ArrowRight className="h-4 w-4" />
+      </Link>
+
       <Accordion type="single" collapsible defaultValue="definicion-dominio" className="space-y-3">
         {topics.map((topic) => (
           <AccordionItem
