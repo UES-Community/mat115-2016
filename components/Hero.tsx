@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import MathRender from './MathRender';
 import { ArrowRight, Terminal, Sparkles, Layers } from 'lucide-react';
 
@@ -29,18 +30,19 @@ export default function Hero() {
 
           {/* Action CTAs strictly following AgentQL specs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#unidades" className="btn-primary">
+            <Link href="/unidades" className="btn-primary hover:scale-105 transition-transform duration-200">
               Iniciar Programa
               <ArrowRight className="w-4 h-4 ml-1" />
-            </a>
-            <a href="#calculadora" className="btn-ghost">
+            </Link>
+            <Link href="/calculadora" className="btn-ghost hover:scale-105 transition-transform duration-200">
               Explorar Calculadoras
-            </a>
-            <a href="#simulador3d" className="btn-accent text-sm">
+            </Link>
+            <Link href="/simulador3d" className="btn-accent text-sm hover:scale-105 transition-transform duration-200">
               <Layers className="w-4 h-4" />
               Simulación 3D
-            </a>
+            </Link>
           </div>
+
 
           {/* Badges strip */}
           <div className="pt-6 border-t border-inkline grid grid-cols-3 gap-4 text-xs text-mist">

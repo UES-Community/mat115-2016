@@ -1,16 +1,22 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { BookOpen, Calculator, LineChart, Box, Sparkles, ChevronDown, Github } from 'lucide-react';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const isToolsActive = ['/calculadora', '/graficador2d', '/simulador3d'].includes(pathname);
+
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-void/80 border-b border-inkline">
       <div className="max-w-[1200px] mx-auto px-4 h-16 flex items-center justify-between">
         {/* Brand / Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-pulse-violet to-aurora-purple flex items-center justify-center text-white font-figtree font-bold text-sm shadow-md">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-pulse-violet to-aurora-purple flex items-center justify-center text-white font-figtree font-bold text-sm shadow-md group-hover:scale-105 transition-transform duration-200">
             M1
           </div>
           <div>
@@ -18,61 +24,93 @@ export default function Navbar() {
               MAT115<span className="text-ash text-sm font-normal ml-1">2016</span>
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-ash font-medium">
-          <a href="#unidades" className="hover:text-quartz transition-colors flex items-center gap-1.5">
-            <BookOpen className="w-4 h-4 text-signal-blue" />
+          <Link
+            href="/unidades"
+            className={`transition-all duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${
+              pathname === '/unidades'
+                ? 'text-quartz bg-cobalt-panel/70 border border-sapphire-hairline'
+                : 'hover:text-quartz hover:bg-deep-sea/50'
+            }`}
+          >
+            <BookOpen className={`w-4 h-4 ${pathname === '/unidades' ? 'text-frosted-lilac' : 'text-signal-blue'}`} />
             Unidades
-          </a>
+          </Link>
 
           {/* Radix UI Dropdown for Interactive Tools */}
           <DropdownMenu.Root>
-            <DropdownMenu.Trigger className="hover:text-quartz transition-colors flex items-center gap-1 focus:outline-none cursor-pointer">
+            <DropdownMenu.Trigger
+              className={`transition-all duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg focus:outline-none cursor-pointer ${
+                isToolsActive
+                  ? 'text-quartz bg-cobalt-panel/70 border border-sapphire-hairline'
+                  : 'hover:text-quartz hover:bg-deep-sea/50'
+              }`}
+            >
               <Sparkles className="w-4 h-4 text-plasma-pink" />
               Herramientas
               <ChevronDown className="w-3.5 h-3.5 text-ash" />
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content
-                className="z-50 min-w-[200px] bg-deep-sea border border-obsidian-edge rounded-cards p-2 shadow-xl animate-in fade-in-80"
+                className="z-50 min-w-[200px] bg-deep-sea border border-obsidian-edge rounded-cards p-2 shadow-xl animate-in fade-in-80 slide-in-from-top-2 duration-200"
                 sideOffset={8}
               >
                 <DropdownMenu.Item className="focus:outline-none">
-                  <a
-                    href="#calculadora"
-                    className="flex items-center gap-2.5 px-3 py-2 text-sm text-mist hover:text-quartz hover:bg-cobalt-panel rounded-lg transition-colors"
+                  <Link
+                    href="/calculadora"
+                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                      pathname === '/calculadora'
+                        ? 'text-quartz bg-cobalt-panel font-semibold'
+                        : 'text-mist hover:text-quartz hover:bg-cobalt-panel/60'
+                    }`}
                   >
                     <Calculator className="w-4 h-4 text-signal-blue" />
                     Calculadora Simbólica
-                  </a>
+                  </Link>
                 </DropdownMenu.Item>
                 <DropdownMenu.Item className="focus:outline-none">
-                  <a
-                    href="#graficador2d"
-                    className="flex items-center gap-2.5 px-3 py-2 text-sm text-mist hover:text-quartz hover:bg-cobalt-panel rounded-lg transition-colors"
+                  <Link
+                    href="/graficador2d"
+                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                      pathname === '/graficador2d'
+                        ? 'text-quartz bg-cobalt-panel font-semibold'
+                        : 'text-mist hover:text-quartz hover:bg-cobalt-panel/60'
+                    }`}
                   >
                     <LineChart className="w-4 h-4 text-frosted-lilac" />
                     Graficador 2D
-                  </a>
+                  </Link>
                 </DropdownMenu.Item>
                 <DropdownMenu.Item className="focus:outline-none">
-                  <a
-                    href="#simulador3d"
-                    className="flex items-center gap-2.5 px-3 py-2 text-sm text-mist hover:text-quartz hover:bg-cobalt-panel rounded-lg transition-colors"
+                  <Link
+                    href="/simulador3d"
+                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                      pathname === '/simulador3d'
+                        ? 'text-quartz bg-cobalt-panel font-semibold'
+                        : 'text-mist hover:text-quartz hover:bg-cobalt-panel/60'
+                    }`}
                   >
                     <Box className="w-4 h-4 text-plasma-pink" />
                     Simulación 3D (R³)
-                  </a>
+                  </Link>
                 </DropdownMenu.Item>
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
 
-          <a href="#recursos" className="hover:text-quartz transition-colors">
+          <Link
+            href="/recursos"
+            className={`transition-all duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${
+              pathname === '/recursos'
+                ? 'text-quartz bg-cobalt-panel/70 border border-sapphire-hairline'
+                : 'hover:text-quartz hover:bg-deep-sea/50'
+            }`}
+          >
             Recursos & Fórmulas
-          </a>
+          </Link>
         </nav>
 
         {/* CTA Button & GitHub link */}
@@ -86,11 +124,12 @@ export default function Navbar() {
           >
             <Github className="w-5 h-5" />
           </a>
-          <a href="#unidades" className="btn-primary text-sm px-4 py-2">
+          <Link href="/unidades" className="btn-primary text-sm px-4 py-2 hover:scale-105 transition-transform duration-200">
             Explorar Programa
-          </a>
+          </Link>
         </div>
       </div>
     </header>
   );
 }
+
