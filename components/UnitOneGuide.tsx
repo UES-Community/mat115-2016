@@ -35,7 +35,7 @@ const topics: TopicGuide[] = [
     objective: 'Relaciona una función con el conjunto de puntos (x, f(x)) que forma su gráfica en el plano cartesiano.',
     formula: '\\operatorname{Graf}(f) = \\{(x, f(x)) : x \\in D\\}',
     example: 'La gráfica de f(x) = x² es una parábola con vértice en (0, 0) y simetría respecto del eje y.',
-    resource: { label: 'Explorar en el graficador 2D', href: '/graficador2d' },
+    resource: { label: 'Abrir guía de gráficas', href: '/unidades/unidad-1/grafica-funcion' },
   },
   {
     id: 'tipos-funciones',
