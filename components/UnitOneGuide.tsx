@@ -97,7 +97,7 @@ const topics: TopicGuide[] = [
     objective: 'Usa seno, coseno y tangente para modelar periodicidad, y reconoce sus funciones inversas en dominios restringidos.',
     formula: '\\sin^2(x) + \\cos^2(x) = 1',
     example: 'En y = 2 sen(x), la amplitud es 2 y el periodo es 2π; arcsen(x) devuelve el ángulo principal.',
-    resource: { label: 'Visualizar una función', href: '/graficador2d' },
+    resource: { label: 'Abrir explorador trigonométrico', href: '/unidades/unidad-1/trigonometricas' },
   },
   {
     id: 'transformaciones',
