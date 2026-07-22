@@ -45,7 +45,8 @@ const units: UnitData[] = [
       'Evaluación de formas indeterminadas (0/0, ∞/∞)',
       'Continuidad en un punto e intervalo; Teorema del Valor Intermedio'
     ],
-    description: 'Análisis del comportamiento local y asintótico de funciones reales, estableciendo el rigor necesario para el cálculo diferencial.'
+    description: 'Análisis del comportamiento local y asintótico de funciones reales, estableciendo el rigor necesario para el cálculo diferencial.',
+    guideHref: '/unidades/unidad-2'
   },
   {
     id: 'unidad-3',
