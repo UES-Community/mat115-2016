@@ -26,6 +26,7 @@ const topics: TopicGuide[] = [
     objective: 'Distingue la regla de correspondencia, el dominio permitido y el conjunto de llegada de una función real.',
     formula: 'f: D \\subseteq \\mathbb{R} \\to C, \\quad x \\mapsto f(x)',
     example: 'Para f(x) = √(x − 2), el dominio es [2, ∞) porque el radicando debe ser no negativo.',
+    resource: { label: 'Abrir guía completa del tema', href: '/unidades/unidad-1/definicion-funcion' },
   },
   {
     id: 'grafica-funcion',
