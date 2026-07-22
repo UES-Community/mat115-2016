@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import * as Tabs from '@radix-ui/react-tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import MathRender from './MathRender';
 import { computeDerivative, evaluateExpression } from '../lib/math-helpers';
 import { Calculator, Sparkles, Check, Copy } from 'lucide-react';
@@ -45,24 +45,24 @@ export default function SymbolicCalculator() {
         </div>
 
         {/* Radix UI Tabs Component */}
-        <Tabs.Root defaultValue="derivadas" className="w-full max-w-4xl mx-auto space-y-6">
-          <Tabs.List className="flex rounded-buttons bg-deep-sea p-1 border border-obsidian-edge max-w-md mx-auto">
-            <Tabs.Trigger
+        <Tabs defaultValue="derivadas" className="w-full max-w-4xl mx-auto space-y-6">
+          <TabsList className="flex rounded-buttons bg-deep-sea p-1 border border-obsidian-edge max-w-md mx-auto">
+            <TabsTrigger
               value="derivadas"
               className="flex-1 py-2 text-sm font-medium text-ash rounded-buttons transition-all data-[state=active]:bg-cobalt-panel data-[state=active]:text-quartz data-[state=active]:shadow-md focus:outline-none"
             >
               Cálculo de Derivadas
-            </Tabs.Trigger>
-            <Tabs.Trigger
+            </TabsTrigger>
+            <TabsTrigger
               value="evaluacion"
               className="flex-1 py-2 text-sm font-medium text-ash rounded-buttons transition-all data-[state=active]:bg-cobalt-panel data-[state=active]:text-quartz data-[state=active]:shadow-md focus:outline-none"
             >
               Evaluación Numérica
-            </Tabs.Trigger>
-          </Tabs.List>
+            </TabsTrigger>
+          </TabsList>
 
           {/* TAB 1: DERIVADAS */}
-          <Tabs.Content value="derivadas" className="agentql-card space-y-6">
+          <TabsContent value="derivadas" className="agentql-card space-y-6">
             <div className="flex items-center gap-2 text-xs font-medium text-frosted-lilac">
               <Sparkles className="w-4 h-4 text-plasma-pink" />
               <span>Diferenciación Simbólica (Regla de la Cadena, Producto, Potencias)</span>
@@ -133,10 +133,10 @@ export default function SymbolicCalculator() {
                 <span>Formato Texto: {diffResult.resultText}</span>
               </div>
             </div>
-          </Tabs.Content>
+          </TabsContent>
 
           {/* TAB 2: EVALUACION */}
-          <Tabs.Content value="evaluacion" className="agentql-card space-y-6">
+          <TabsContent value="evaluacion" className="agentql-card space-y-6">
             <div className="flex items-center gap-2 text-xs font-medium text-frosted-lilac">
               <Calculator className="w-4 h-4 text-signal-blue" />
               <span>Evaluación Numérica Puntual en f(x)</span>
@@ -175,8 +175,8 @@ export default function SymbolicCalculator() {
                 <MathRender math={`f(${evalX}) = ${evalResult.resultText}`} block />
               </div>
             </div>
-          </Tabs.Content>
-        </Tabs.Root>
+          </TabsContent>
+        </Tabs>
 
       </div>
     </section>

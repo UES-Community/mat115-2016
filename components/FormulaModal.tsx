@@ -1,10 +1,25 @@
 'use client';
 
 import React from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import * as Tooltip from '@radix-ui/react-tooltip';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogClose,
+} from '@/components/ui/dialog';
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipPortal,
+  TooltipContent,
+  TooltipArrow,
+} from '@/components/ui/tooltip';
 import MathRender from './MathRender';
-import { BookOpen, X, Info, HelpCircle } from 'lucide-react';
+import { BookOpen, X, HelpCircle } from 'lucide-react';
 
 export default function FormulaModal() {
   return (
@@ -20,22 +35,22 @@ export default function FormulaModal() {
         <div className="flex flex-wrap items-center justify-center gap-4">
           
           {/* Radix Dialog for Formulario Completo */}
-          <Dialog.Root>
-            <Dialog.Trigger className="btn-ghost text-sm">
+          <Dialog>
+            <DialogTrigger className="btn-ghost text-sm">
               <BookOpen className="w-4 h-4 text-signal-blue" />
               Ver Tablas de Derivadas e Integrales
-            </Dialog.Trigger>
+            </DialogTrigger>
 
-            <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 bg-void/80 backdrop-blur-sm z-50 animate-in fade-in" />
-              <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-deep-sea border border-obsidian-edge rounded-cards p-6 shadow-xl z-50 space-y-6 max-h-[85vh] overflow-y-auto">
+            <DialogPortal>
+              <DialogOverlay className="fixed inset-0 bg-void/80 backdrop-blur-sm z-50 animate-in fade-in" />
+              <DialogContent className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-deep-sea border border-obsidian-edge rounded-cards p-6 shadow-xl z-50 space-y-6 max-h-[85vh] overflow-y-auto">
                 <div className="flex items-center justify-between border-b border-inkline pb-3">
-                  <Dialog.Title className="font-figtree font-medium text-xl text-quartz">
+                  <DialogTitle className="font-figtree font-medium text-xl text-quartz">
                     Formulario Fundamental MAT115
-                  </Dialog.Title>
-                  <Dialog.Close className="p-1 rounded-full text-ash hover:text-quartz hover:bg-cobalt-panel focus:outline-none">
+                  </DialogTitle>
+                  <DialogClose className="p-1 rounded-full text-ash hover:text-quartz hover:bg-cobalt-panel focus:outline-none">
                     <X className="w-5 h-5" />
-                  </Dialog.Close>
+                  </DialogClose>
                 </div>
 
                 <div className="space-y-6 text-left text-sm">
@@ -75,34 +90,34 @@ export default function FormulaModal() {
                 </div>
 
                 <div className="pt-4 border-t border-inkline text-right">
-                  <Dialog.Close className="btn-primary text-xs px-4 py-2">
+                  <DialogClose className="btn-primary text-xs px-4 py-2">
                     Cerrar
-                  </Dialog.Close>
+                  </DialogClose>
                 </div>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+              </DialogContent>
+            </DialogPortal>
+          </Dialog>
 
           {/* Radix Tooltip Provider for notation info */}
-          <Tooltip.Provider>
-            <Tooltip.Root>
-              <Tooltip.Trigger className="btn-accent text-sm inline-flex items-center gap-1.5 cursor-pointer">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger className="btn-accent text-sm inline-flex items-center gap-1.5 cursor-pointer">
                 <HelpCircle className="w-4 h-4" />
                 Guía de Notación Simbólica
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Content className="bg-deep-sea border border-sapphire-hairline rounded-lg p-3 text-xs text-mist shadow-xl max-w-xs z-50">
+              </TooltipTrigger>
+              <TooltipPortal>
+                <TooltipContent className="bg-deep-sea border border-sapphire-hairline rounded-lg p-3 text-xs text-mist shadow-xl max-w-xs z-50">
                   <p>Sintaxis para el motor simbólico:</p>
                   <ul className="mt-1 space-y-1 font-mono text-[11px] text-frosted-lilac">
                     <li>* Multiplicación: 2*x</li>
                     <li>^ Potencia: x^2</li>
                     <li>sin(x), cos(x), exp(x), log(x)</li>
                   </ul>
-                  <Tooltip.Arrow className="fill-deep-sea" />
-                </Tooltip.Content>
-              </Tooltip.Portal>
-            </Tooltip.Root>
-          </Tooltip.Provider>
+                  <TooltipArrow className="fill-deep-sea" />
+                </TooltipContent>
+              </TooltipPortal>
+            </Tooltip>
+          </TooltipProvider>
 
         </div>
       </div>

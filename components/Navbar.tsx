@@ -3,7 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuPortal,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu';
 import { BookOpen, Calculator, LineChart, Box, Sparkles, ChevronDown, Github } from 'lucide-react';
 
 export default function Navbar() {
@@ -41,8 +47,8 @@ export default function Navbar() {
           </Link>
 
           {/* Radix UI Dropdown for Interactive Tools */}
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger
+          <DropdownMenu>
+            <DropdownMenuTrigger
               className={`transition-all duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg focus:outline-none cursor-pointer ${
                 isToolsActive
                   ? 'text-quartz bg-cobalt-panel/70 border border-sapphire-hairline'
@@ -52,13 +58,13 @@ export default function Navbar() {
               <Sparkles className="w-4 h-4 text-plasma-pink" />
               Herramientas
               <ChevronDown className="w-3.5 h-3.5 text-ash" />
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content
+            </DropdownMenuTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuContent
                 className="z-50 min-w-[200px] bg-deep-sea border border-obsidian-edge rounded-cards p-2 shadow-xl animate-in fade-in-80 slide-in-from-top-2 duration-200"
                 sideOffset={8}
               >
-                <DropdownMenu.Item className="focus:outline-none">
+                <DropdownMenuItem className="focus:outline-none">
                   <Link
                     href="/calculadora"
                     className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
@@ -70,8 +76,8 @@ export default function Navbar() {
                     <Calculator className="w-4 h-4 text-signal-blue" />
                     Calculadora Simbólica
                   </Link>
-                </DropdownMenu.Item>
-                <DropdownMenu.Item className="focus:outline-none">
+                </DropdownMenuItem>
+                <DropdownMenuItem className="focus:outline-none">
                   <Link
                     href="/graficador2d"
                     className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
@@ -83,8 +89,8 @@ export default function Navbar() {
                     <LineChart className="w-4 h-4 text-frosted-lilac" />
                     Graficador 2D
                   </Link>
-                </DropdownMenu.Item>
-                <DropdownMenu.Item className="focus:outline-none">
+                </DropdownMenuItem>
+                <DropdownMenuItem className="focus:outline-none">
                   <Link
                     href="/simulador3d"
                     className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
@@ -96,10 +102,10 @@ export default function Navbar() {
                     <Box className="w-4 h-4 text-plasma-pink" />
                     Simulación 3D (R³)
                   </Link>
-                </DropdownMenu.Item>
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
+          </DropdownMenu>
 
           <Link
             href="/recursos"

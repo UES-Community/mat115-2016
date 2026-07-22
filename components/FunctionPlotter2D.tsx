@@ -1,8 +1,17 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import * as Select from '@radix-ui/react-select';
-import * as Slider from '@radix-ui/react-slider';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectPortal,
+  SelectContent,
+  SelectViewport,
+  SelectItem,
+  SelectItemText,
+} from '@/components/ui/select';
+import { Slider } from '@/components/ui/slider';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { sampleFunction2D } from '../lib/math-helpers';
 import MathRender from './MathRender';
@@ -55,32 +64,27 @@ export default function FunctionPlotter2D() {
             {/* Radix UI Select for Preset Functions */}
             <div className="space-y-1.5">
               <label className="text-xs font-medium text-ash block">Seleccionar Función Preset</label>
-              <Select.Root value={expression} onValueChange={setExpression}>
-                <Select.Trigger className="w-full inline-flex items-center justify-between bg-void border border-obsidian-edge rounded-inputs px-3 py-2.5 text-xs text-quartz focus:outline-none focus:border-signal-blue cursor-pointer">
-                  <Select.Value placeholder="Selecciona una función..." />
-                  <Select.Icon>
-                    <ChevronDown className="w-4 h-4 text-ash" />
-                  </Select.Icon>
-                </Select.Trigger>
-                <Select.Portal>
-                  <Select.Content className="bg-deep-sea border border-obsidian-edge rounded-cards p-1 shadow-xl z-50">
-                    <Select.Viewport className="p-1 space-y-1">
+              <Select value={expression} onValueChange={setExpression}>
+                <SelectTrigger className="w-full inline-flex items-center justify-between bg-void border border-obsidian-edge rounded-inputs px-3 py-2.5 text-xs text-quartz focus:outline-none focus:border-signal-blue cursor-pointer">
+                  <SelectValue placeholder="Selecciona una función..." />
+                  <ChevronDown className="w-4 h-4 text-ash" />
+                </SelectTrigger>
+                <SelectPortal>
+                  <SelectContent className="bg-deep-sea border border-obsidian-edge rounded-cards p-1 shadow-xl z-50">
+                    <SelectViewport className="p-1 space-y-1">
                       {functionPresets.map((preset) => (
-                        <Select.Item
+                        <SelectItem
                           key={preset.value}
                           value={preset.value}
                           className="flex items-center justify-between px-3 py-2 text-xs text-mist hover:text-quartz hover:bg-cobalt-panel rounded cursor-pointer focus:outline-none"
                         >
-                          <Select.ItemText>{preset.label}</Select.ItemText>
-                          <Select.ItemIndicator>
-                            <Check className="w-3.5 h-3.5 text-frosted-lilac" />
-                          </Select.ItemIndicator>
-                        </Select.Item>
+                          <SelectItemText>{preset.label}</SelectItemText>
+                        </SelectItem>
                       ))}
-                    </Select.Viewport>
-                  </Select.Content>
-                </Select.Portal>
-              </Select.Root>
+                    </SelectViewport>
+                  </SelectContent>
+                </SelectPortal>
+              </Select>
             </div>
 
             {/* Custom Input */}
@@ -100,7 +104,7 @@ export default function FunctionPlotter2D() {
                 <span>Rango del Dominio [X_min, X_max]:</span>
                 <span className="font-mono text-frosted-lilac">[{domainRange[0]}, {domainRange[1]}]</span>
               </div>
-              <Slider.Root
+              <Slider
                 className="relative flex items-center select-none touch-none w-full h-5 cursor-pointer"
                 value={domainRange}
                 onValueChange={setDomainRange}
@@ -108,13 +112,7 @@ export default function FunctionPlotter2D() {
                 max={15}
                 step={1}
                 minStepsBetweenThumbs={2}
-              >
-                <Slider.Track className="bg-void relative grow rounded-full h-[4px]">
-                  <Slider.Range className="absolute bg-gradient-to-r from-pulse-violet to-aurora-purple rounded-full h-full" />
-                </Slider.Track>
-                <Slider.Thumb className="block w-4 h-4 bg-quartz rounded-full shadow-md hover:bg-frosted-lilac focus:outline-none" />
-                <Slider.Thumb className="block w-4 h-4 bg-quartz rounded-full shadow-md hover:bg-frosted-lilac focus:outline-none" />
-              </Slider.Root>
+              />
             </div>
 
             {/* Latex Info Card */}

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import * as Accordion from '@radix-ui/react-accordion';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import MathRender from './MathRender';
 import { ChevronDown, BookOpen, CheckCircle2, FunctionSquare, Binary, Compass, BarChart, Box } from 'lucide-react';
 
@@ -109,36 +109,34 @@ export default function UnitsAccordion() {
         </div>
 
         {/* Radix UI Accordion Component */}
-        <Accordion.Root type="single" defaultValue="unidad-1" collapsible className="space-y-4">
+        <Accordion type="single" defaultValue="unidad-1" collapsible className="space-y-4">
           {units.map((unit) => {
             const Icon = unit.icon;
             return (
-              <Accordion.Item
+              <AccordionItem
                 key={unit.id}
                 value={unit.id}
                 className="agentql-card overflow-hidden transition-all duration-200 border border-obsidian-edge rounded-cards"
               >
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger className="flex-1 flex items-center justify-between p-4 sm:p-6 text-left group focus:outline-none cursor-pointer">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-cobalt-panel border border-sapphire-hairline flex items-center justify-center text-signal-blue group-hover:text-frosted-lilac group-hover:border-frosted-lilac/30 transition-colors">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-figtree font-medium text-lg sm:text-xl text-quartz group-hover:text-frosted-lilac transition-colors">
-                          {unit.title}
-                        </h3>
-                        <p className="font-sans font-light text-xs sm:text-sm text-ash">
-                          {unit.subtitle}
-                        </p>
-                      </div>
+                <AccordionTrigger className="flex-1 flex items-center justify-between p-4 sm:p-6 text-left group focus:outline-none cursor-pointer">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-cobalt-panel border border-sapphire-hairline flex items-center justify-center text-signal-blue group-hover:text-frosted-lilac group-hover:border-frosted-lilac/30 transition-colors">
+                      <Icon className="w-5 h-5" />
                     </div>
+                    <div>
+                      <h3 className="font-figtree font-medium text-lg sm:text-xl text-quartz group-hover:text-frosted-lilac transition-colors">
+                        {unit.title}
+                      </h3>
+                      <p className="font-sans font-light text-xs sm:text-sm text-ash">
+                        {unit.subtitle}
+                      </p>
+                    </div>
+                  </div>
 
-                    <ChevronDown className="w-5 h-5 text-ash group-hover:text-quartz transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </Accordion.Trigger>
-                </Accordion.Header>
+                  <ChevronDown className="w-5 h-5 text-ash group-hover:text-quartz transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                </AccordionTrigger>
 
-                <Accordion.Content className="px-4 sm:px-6 pb-6 pt-2 text-mist text-sm border-t border-inkline/60 bg-deep-sea/40 transition-all">
+                <AccordionContent className="px-4 sm:px-6 pb-6 pt-2 text-mist text-sm border-t border-inkline/60 bg-deep-sea/40 transition-all">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mt-4">
                     {/* Description & Topics */}
                     <div className="lg:col-span-7 space-y-4">
@@ -171,11 +169,11 @@ export default function UnitsAccordion() {
                       </div>
                     </div>
                   </div>
-                </Accordion.Content>
-              </Accordion.Item>
+                </AccordionContent>
+              </AccordionItem>
             );
           })}
-        </Accordion.Root>
+        </Accordion>
 
       </div>
     </section>
