@@ -115,6 +115,7 @@ const topics: TopicGuide[] = [
     objective: 'Identifica simetría respecto del eje y o del origen mediante la evaluación de f(-x).',
     formula: '\\text{Par: } f(-x) = f(x), \\quad \\text{impar: } f(-x) = -f(x)',
     example: 'f(x) = x² es par y g(x) = x³ es impar; sus simetrías permiten estudiar solo una parte de la gráfica.',
+    resource: { label: 'Abrir clasificador de simetría', href: '/unidades/unidad-1/par-impar' },
   },
 ];
 
