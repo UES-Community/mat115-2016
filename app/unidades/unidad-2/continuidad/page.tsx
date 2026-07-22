@@ -1,0 +1,14 @@
+'use client';
+
+import Link from 'next/link';
+import { useState } from 'react';
+import { ArrowLeft, CheckCircle2, FunctionSquare, XCircle } from 'lucide-react';
+import MathRender from '@/components/MathRender';
+
+export default function ContinuityPage() {
+  const [answer, setAnswer] = useState<boolean | null>(null);
+
+  return (
+    <div className="mx-auto max-w-[1200px] space-y-10 px-4 py-10 sm:py-16"><div className="space-y-5"><Link href="/unidades/unidad-2" className="inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-quartz"><ArrowLeft className="h-4 w-4" />Volver a la guía de Unidad 2</Link><div className="flex items-start gap-4"><div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-sapphire-hairline bg-cobalt-panel text-signal-blue"><FunctionSquare className="h-6 w-6" /></div><div className="space-y-2"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-frosted-lilac">Unidad 2 · Tema 05</p><h1 className="font-figtree text-3xl font-medium tracking-tight text-quartz sm:text-5xl">Continuidad</h1><p className="max-w-3xl text-base leading-relaxed text-mist">Comprueba cuándo una gráfica puede recorrerse sin saltos, huecos o asíntotas en un punto.</p></div></div></div><section className="agentql-card space-y-4"><p className="text-xs font-semibold uppercase tracking-wider text-frosted-lilac">Tres condiciones en a</p><ol className="space-y-3 text-sm text-mist"><li>1. f(a) está definida.</li><li>2. Existe lim x→a f(x).</li><li>3. El límite coincide con f(a).</li></ol><MathRender math="\\lim_{x \\to a}f(x)=f(a)" block /></section><section className="agentql-highlight-card space-y-6"><div><p className="mb-2 text-xs font-semibold uppercase tracking-wider text-frosted-lilac">Verificador conceptual</p><h2 className="font-figtree text-2xl text-quartz">¿Es continua en x = 2?</h2><p className="mt-2 text-sm text-mist">f(x) = x + 1 si x &lt; 2; f(x) = 3x − 3 si x ≥ 2.</p></div><div className="rounded-lg border border-sapphire-hairline bg-cobalt-panel/60 p-4 text-sm text-mist"><p>Límite por izquierda = 3 · límite por derecha = 3 · f(2) = 3.</p><p className="mt-2 font-mono text-frosted-lilac">Las tres condiciones coinciden.</p></div><div className="flex gap-3">{[true, false].map((v) => <button key={String(v)} type="button" onClick={() => setAnswer(v)} className={`rounded-full border px-5 py-2 text-sm ${answer === v ? 'border-frosted-lilac bg-cobalt-panel text-quartz' : 'border-obsidian-edge text-mist'}`}>{v ? 'Sí' : 'No'}</button>)}</div>{answer !== null && <div className={`flex items-start gap-3 text-sm ${answer ? 'text-emerald-200' : 'text-pink-200'}`} role="status">{answer ? <CheckCircle2 className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}<p>{answer ? 'Correcto: el valor, el límite y la aproximación coinciden.' : 'Compara las tres condiciones: todas tienen el mismo valor 3.'}</p></div>}</section></div>
+  );
+}
