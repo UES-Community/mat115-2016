@@ -15,7 +15,7 @@ import { Slider } from '@/components/ui/slider';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { sampleFunction2D } from '../lib/math-helpers';
 import MathRender from './MathRender';
-import { LineChart as ChartIcon, ChevronDown, Check, SlidersHorizontal } from 'lucide-react';
+import { LineChart as ChartIcon, ChevronDown, SlidersHorizontal } from 'lucide-react';
 
 const functionPresets = [
   { label: 'Polinómica: f(x) = x^3 - 3*x', value: 'x^3 - 3*x', latex: 'f(x) = x^3 - 3x' },

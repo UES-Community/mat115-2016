@@ -84,7 +84,7 @@ export default function Hero() {
                 <span className="text-slate">02</span>
               </div>
               <div className="text-mist">
-                <span className="text-slate">03</span> <span className="text-[#8798c1]">// Teorema Fundamental del Cálculo</span>
+                <span className="text-slate">03</span> <span className="text-[#8798c1]">{'// Teorema Fundamental del Cálculo'}</span>
               </div>
               <div className="text-mist">
                 <span className="text-slate">04</span> <span className="text-plasma-pink">const</span> <span className="text-quartz">f</span> = (x) =&gt; <span className="text-[#28b6ff]">&apos;x^3 * sin(x)&apos;</span>;

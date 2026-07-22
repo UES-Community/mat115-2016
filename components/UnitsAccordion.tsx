@@ -3,7 +3,7 @@
 import React from 'react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import MathRender from './MathRender';
-import { ChevronDown, BookOpen, CheckCircle2, FunctionSquare, Binary, Compass, BarChart, Box } from 'lucide-react';
+import { ChevronDown, CheckCircle2, FunctionSquare, Binary, Compass, BarChart, Box } from 'lucide-react';
 
 interface UnitData {
   id: string;

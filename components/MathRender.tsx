@@ -15,7 +15,7 @@ export default function MathRender({ math, block = false }: MathRenderProps) {
       return <BlockMath math={math} />;
     }
     return <InlineMath math={math} />;
-  } catch (err) {
+  } catch {
     return <span className="font-mono text-xs text-red-400">{math}</span>;
   }
 }

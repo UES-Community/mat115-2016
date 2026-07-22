@@ -29,8 +29,8 @@ export function sampleFunction2D(
         points.push({ x: Number(x.toFixed(2)), y: null });
       }
     }
-  } catch (err) {
-    console.error('Error parsing expression for 2D plot:', err);
+  } catch {
+    console.error('Error parsing expression for 2D plot');
   }
 
   return points;
@@ -43,7 +43,7 @@ export function computeDerivative(expression: string, variable = 'x'): { resultL
       resultLatex: der.toTex(),
       resultText: der.toString(),
     };
-  } catch (err) {
+  } catch {
     return {
       resultLatex: '\\text{Expresión no válida}',
       resultText: 'Expresión no válida',
@@ -59,7 +59,7 @@ export function evaluateExpression(expression: string, scope: Record<string, num
       resultText: String(result),
       latex: parsed.toTex(),
     };
-  } catch (err) {
+  } catch {
     return {
       resultText: 'Error',
       latex: '\\text{Error}',
