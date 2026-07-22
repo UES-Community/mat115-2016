@@ -106,7 +106,7 @@ const topics: TopicGuide[] = [
     objective: 'Predice traslaciones, reflexiones y escalas a partir de una función base.',
     formula: 'g(x) = a f(b(x - h)) + k',
     example: 'En g(x) = −2f(x − 3) + 1, la gráfica se desplaza 3 a la derecha, se refleja y escala verticalmente, y sube 1.',
-    resource: { label: 'Comparar gráficas', href: '/graficador2d' },
+    resource: { label: 'Abrir explorador de transformaciones', href: '/unidades/unidad-1/transformaciones' },
   },
   {
     id: 'par-impar',
