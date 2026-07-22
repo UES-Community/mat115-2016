@@ -62,6 +62,7 @@ const topics: TopicGuide[] = [
     objective: 'Aplica una función después de otra y determina el dominio válido de la composición.',
     formula: '(f \\circ g)(x) = f(g(x))',
     example: 'Con f(x) = x² y g(x) = x + 1, se obtiene (f ∘ g)(x) = (x + 1)².',
+    resource: { label: 'Abrir laboratorio de composición', href: '/unidades/unidad-1/composicion-funciones' },
   },
   {
     id: 'funcion-inversa',
