@@ -88,7 +88,7 @@ const topics: TopicGuide[] = [
     objective: 'Relaciona crecimiento o decrecimiento exponencial con su función inversa logarítmica.',
     formula: 'a^x = y \\iff \\log_a(y) = x, \\quad a > 0,\\ a \\ne 1',
     example: 'Si una población se modela con P(t) = 100(1.05)ᵗ, crece 5% por periodo y P(0) = 100.',
-    resource: { label: 'Evaluar el modelo', href: '/calculadora' },
+    resource: { label: 'Abrir calculador exponencial', href: '/unidades/unidad-1/exponenciales-logaritmicas' },
   },
   {
     id: 'trigonometricas',
