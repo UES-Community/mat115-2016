@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import MathRender from './MathRender';
-import { ChevronDown, CheckCircle2, FunctionSquare, Binary, Compass, BarChart, Box } from 'lucide-react';
+import { ArrowRight, ChevronDown, CheckCircle2, FunctionSquare, Binary, Compass, BarChart, Box } from 'lucide-react';
 
 interface UnitData {
   id: string;
@@ -13,6 +14,7 @@ interface UnitData {
   formula: string;
   topics: string[];
   description: string;
+  guideHref?: string;
 }
 
 const units: UnitData[] = [
@@ -28,7 +30,8 @@ const units: UnitData[] = [
       'Funciones inyectivas, sobreyectivas y función inversa f⁻¹(x)',
       'Modelado matemático con funciones polinómicas, exponenciales y logarítmicas'
     ],
-    description: 'Estudio fundamental de la relación entre variables reales, transformaciones gráficas y construcción de modelos aplicados a física e ingeniería.'
+    description: 'Estudio fundamental de la relación entre variables reales, transformaciones gráficas y construcción de modelos aplicados a física e ingeniería.',
+    guideHref: '/unidades/unidad-1'
   },
   {
     id: 'unidad-2',
@@ -143,6 +146,16 @@ export default function UnitsAccordion() {
                       <p className="font-sans text-ash text-sm leading-relaxed">
                         {unit.description}
                       </p>
+
+                      {unit.guideHref && (
+                        <Link
+                          href={unit.guideHref}
+                          className="inline-flex items-center gap-2 text-sm font-medium text-frosted-lilac transition-colors hover:text-quartz"
+                        >
+                          Abrir guía interactiva de la unidad
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      )}
 
                       <div className="space-y-2">
                         <span className="text-xs uppercase font-semibold text-frosted-lilac tracking-wider block">
