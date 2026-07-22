@@ -53,7 +53,7 @@ const topics: TopicGuide[] = [
     objective: 'Construye nuevas funciones mediante suma, resta, producto y cociente, cuidando las restricciones del dominio.',
     formula: '(f + g)(x) = f(x) + g(x), \\quad (f/g)(x) = \\frac{f(x)}{g(x)}',
     example: 'Si f(x) = x y g(x) = x², entonces (f + g)(x) = x² + x; el cociente exige además x ≠ 0.',
-    resource: { label: 'Probar una expresión', href: '/calculadora' },
+    resource: { label: 'Abrir laboratorio de operaciones', href: '/unidades/unidad-1/algebra-funciones' },
   },
   {
     id: 'composicion',
