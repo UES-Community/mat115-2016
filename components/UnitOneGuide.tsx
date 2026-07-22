@@ -44,6 +44,7 @@ const topics: TopicGuide[] = [
     objective: 'Reconoce funciones polinómicas, racionales, algebraicas, exponenciales, logarítmicas y trigonométricas.',
     formula: 'f(x) = a_nx^n + \\cdots + a_1x + a_0',
     example: 'f(x) = 2x³ − x + 4 es polinómica de grado 3; g(x) = 1/(x − 1) es racional y no está definida en x = 1.',
+    resource: { label: 'Abrir guía de clasificación', href: '/unidades/unidad-1/tipos-funciones' },
   },
   {
     id: 'algebra-funciones',
